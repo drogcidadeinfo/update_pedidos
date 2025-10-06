@@ -1,0 +1,41 @@
+name: Hourly App Orders Check
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # every hour UTC
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # required to push sent_messages.json updates
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install selenium requests
+
+      - name: Run Selenium script
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          WEBSITE: ${{ secrets.WEBSITE }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python main.py
+
+      - name: Commit updated sent messages
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add sent_messages.json || true
+          git commit -m "update sent messages" || echo "No changes"
+          git push || echo "No changes to push"

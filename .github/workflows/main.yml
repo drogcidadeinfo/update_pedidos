@@ -30,7 +30,7 @@ jobs:
           WEBSITE: ${{ secrets.WEBSITE }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python main.py
+        run: python scrap.py
 
       - name: Commit updated sent messages
         run: |

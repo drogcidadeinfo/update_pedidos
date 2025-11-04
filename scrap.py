@@ -130,6 +130,7 @@ try:
         process_table()
         try:
             next_button = driver.find_element(By.XPATH, "//a[contains(., 'Próximo') or contains(., '›')]")
+            driver.execute_script("arguments[0].scrollIntoView();", next_button)
             if "disabled" in next_button.get_attribute("class").lower():
                 logging.info("Reached last page of the table.")
                 break

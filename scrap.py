@@ -11,6 +11,9 @@ from selenium.common.exceptions import NoSuchElementException
 # --- Logging setup ---
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
+# --- Date setup ---
+date_range = datetime.now().strftime("%d%m%y-%d%m%y")
+
 # --- Credentials ---
 username = os.getenv("USERNAME")
 password = os.getenv("PASSWORD")

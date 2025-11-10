@@ -2,6 +2,7 @@ import time, os, json, logging, requests
 from datetime import datetime, timedelta
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -97,7 +98,7 @@ def process_table():
 
                 try:
                     cell.find_element(By.XPATH, ".//i[contains(@class, 'fa-times')]")
-                    msg = f"✔ Found checkmark -> Filial: {col1} | Nome: {col2} | {col3}"
+                    msg = f"✔ Erro coluna 'Envio PDV' -> Filial: {col1} | Nome: {col2} | {col3}"
                     if msg not in sent:
                         logging.info(msg)
                         send_telegram_message(msg)
@@ -125,6 +126,12 @@ try:
     WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/aside/div/div[4]/div/div/nav/ul/li[9]/a"))).click()
     time.sleep(8)
 
+    data = WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.ID, "orders_date_range")))
+    data.clear()
+    data.send_keys(date_range)
+    data.send_keys(Keys.ENTER)
+    time.sleep(8)
+
     # --- Process all pages ---
     while True:
         process_table()
@@ -142,9 +149,9 @@ try:
 
 except Exception as e:
     logging.error(f"Error: {e}")
-    ts = time.strftime("%Y%m%d-%H%M%S")
-    driver.save_screenshot(f"screenshot_{ts}.png")
-    logging.info(f"Screenshot saved as screenshot_{ts}.png")
+    # ts = time.strftime("%Y%m%d-%H%M%S")
+    # driver.save_screenshot(f"screenshot_{ts}.png")
+    # logging.info(f"Screenshot saved as screenshot_{ts}.png")
 
 finally:
     # Save updated sent list

@@ -95,7 +95,7 @@ def process_table():
         for row in rows:
             try:
                 col2 = row.find_element(By.XPATH, ".//td[2]").text.strip()
-                col2 = row.find_element(By.XPATH, ".//td[3]").text.strip()
+                col3 = row.find_element(By.XPATH, ".//td[3]").text.strip()
                 col4 = row.find_element(By.XPATH, ".//td[4]").text.strip()
                 cell = row.find_element(By.XPATH, ".//td[10]")
 

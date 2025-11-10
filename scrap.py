@@ -97,7 +97,7 @@ def process_table():
                 col1 = row.find_element(By.XPATH, ".//td[1]").text.strip()
                 col2 = row.find_element(By.XPATH, ".//td[2]").text.strip()
                 col3 = row.find_element(By.XPATH, ".//td[3]").text.strip()
-                cell = row.find_element(By.XPATH, ".//td[9]")
+                cell = row.find_element(By.XPATH, ".//td[10]")
 
                 try:
                     cell.find_element(By.XPATH, ".//i[contains(@class, 'fa-times')]")

@@ -94,14 +94,14 @@ def process_table():
 
         for row in rows:
             try:
-                col1 = row.find_element(By.XPATH, ".//td[1]").text.strip()
                 col2 = row.find_element(By.XPATH, ".//td[2]").text.strip()
-                col3 = row.find_element(By.XPATH, ".//td[3]").text.strip()
+                col2 = row.find_element(By.XPATH, ".//td[3]").text.strip()
+                col4 = row.find_element(By.XPATH, ".//td[4]").text.strip()
                 cell = row.find_element(By.XPATH, ".//td[10]")
 
                 try:
                     cell.find_element(By.XPATH, ".//i[contains(@class, 'fa-times')]")
-                    msg = f"✔ Erro coluna 'Envio PDV' -> Filial: {col1} | Nome: {col2} | {col3}"
+                    msg = f"✔ Erro coluna 'Envio PDV' -> Filial: {col2} | Nome: {col3} | {col4}"
                     if msg not in sent:
                         logging.info(msg)
                         send_telegram_message(msg)
@@ -111,7 +111,7 @@ def process_table():
                         skipped_msgs += 1
                         logging.debug(f"Skipping duplicate: {msg}")
                 except NoSuchElementException:
-                    logging.debug(f"No checkmark for row {col1} | {col2} | {col3}")
+                    logging.debug(f"No checkmark for row {col2} | {col3} | {col4}")
             except Exception as row_err:
                 logging.warning(f"Skipping a row due to error: {row_err}")
     except NoSuchElementException:

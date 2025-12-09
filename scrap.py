@@ -37,7 +37,7 @@ def send_telegram_message(text):
 
 # --- Deduplication setup ---
 SENT_FILE = "sent_messages.json"
-EXPIRY_DAYS = 7
+EXPIRY_DAYS = 2
 
 def load_sent():
     """Load sent messages and remove expired ones."""
@@ -88,32 +88,65 @@ expired_msgs = 0
 def process_table():
     """Process table rows on current page."""
     global new_msgs, skipped_msgs
+
     try:
         table = driver.find_element(By.XPATH, "//table")
         rows = table.find_elements(By.XPATH, ".//tbody//tr")
 
         for row in rows:
             try:
+                # --- Column extraction ---
                 col2 = row.find_element(By.XPATH, ".//td[2]").text.strip()
                 col3 = row.find_element(By.XPATH, ".//td[3]").text.strip()
                 col4 = row.find_element(By.XPATH, ".//td[4]").text.strip()
-                cell = row.find_element(By.XPATH, ".//td[10]")
 
+                # Cells where icons are located
+                cell1 = row.find_element(By.XPATH, ".//td[10]")
+                cell2 = row.find_element(By.XPATH, ".//td[13]")
+
+                # ============================================================
+                # CHECK 1 -> Envio PDV error (fa-times)
+                # ============================================================
                 try:
-                    cell.find_element(By.XPATH, ".//i[contains(@class, 'fa-times')]")
-                    msg = f"✔ Erro coluna 'Envio PDV' -> Filial: {col2} | Nome: {col3} | {col4}"
-                    if msg not in sent:
-                        logging.info(msg)
-                        send_telegram_message(msg)
-                        mark_sent(msg)
+                    cell1.find_element(By.XPATH, ".//i[contains(@class, 'fa-times')]")
+                    msg1 = f"✖️ Erro coluna 'Envio PDV' -> Filial: {col2} | Nome: {col3} | {col4}"
+
+                    if msg1 not in sent:
+                        logging.info(msg1)
+                        send_telegram_message(msg1)
+                        mark_sent(msg1)
                         new_msgs += 1
                     else:
                         skipped_msgs += 1
-                        logging.debug(f"Skipping duplicate: {msg}")
+                        logging.debug(f"Skipping duplicate: {msg1}")
+
                 except NoSuchElementException:
-                    logging.debug(f"No checkmark for row {col2} | {col3} | {col4}")
+                    # fa-times not found — silent skip
+                    pass
+
+                # ============================================================
+                # CHECK 2 -> Status Pedido error (badge-danger)
+                # ============================================================
+                try:
+                    cell2.find_element(By.XPATH, ".//i[contains(@class, 'badge-danger')]")
+                    msg2 = f"❗Pendência 'Enviar para PDV' -> Filial: {col2} | Nome: {col3} | {col4}"
+
+                    if msg2 not in sent:
+                        logging.info(msg2)
+                        send_telegram_message(msg2)
+                        mark_sent(msg2)
+                        new_msgs += 1
+                    else:
+                        skipped_msgs += 1
+                        logging.debug(f"Skipping duplicate: {msg2}")
+
+                except NoSuchElementException:
+                    # badge-danger not found — silent skip
+                    pass
+
             except Exception as row_err:
                 logging.warning(f"Skipping a row due to error: {row_err}")
+
     except NoSuchElementException:
         logging.error("No table found on this page")
 

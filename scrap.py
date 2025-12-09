@@ -128,7 +128,7 @@ def process_table():
                 # CHECK 2 -> Status Pedido error (badge-danger)
                 # ============================================================
                 try:
-                    cell2.find_element(By.XPATH, ".//i[contains(@class, 'badge-danger')]")
+                    cell2.find_element(By.XPATH, ".//i[contains(@class, 'badge')]")
                     msg2 = f"❗Pendência 'Enviar para PDV' -> Filial: {col2} | Nome: {col3} | {col4}"
 
                     if msg2 not in sent:

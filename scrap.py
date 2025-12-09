@@ -107,7 +107,7 @@ def process_table():
                 # ============================================================
                 # CHECK 1 -> Envio PDV error (fa-times)
                 # ============================================================
-                '''try:
+                try:
                     cell1.find_element(By.XPATH, ".//i[contains(@class, 'fa-times')]")
                     msg1 = f"✖️ Erro coluna 'Envio PDV' -> Filial: {col2} | Nome: {col3} | {col4}"
 
@@ -122,13 +122,13 @@ def process_table():
 
                 except NoSuchElementException:
                     # fa-times not found — silent skip
-                    pass'''
+                    pass
 
                 # ============================================================
                 # CHECK 2 -> Status Pedido error (badge-danger)
                 # ============================================================
                 try:
-                    cell2.find_element(By.XPATH, ".//i[contains(@class, 'badge badge-danger')]")
+                    cell2.find_element(By.XPATH, ".//*[contains(@class, 'badge-danger')]")
                     msg2 = f"❗Pendência 'Enviar para PDV' -> Filial: {col2} | Nome: {col3} | {col4}"
 
                     if msg2 not in sent:

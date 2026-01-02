@@ -2,7 +2,7 @@ name: Hourly App Orders Check
 
 on:
   schedule:
-    - cron: "0 * * * *"  # every hour UTC
+    - cron: "0/30 * * * *"  # every hour UTC
   workflow_dispatch:
 
 jobs:

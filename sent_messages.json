@@ -1,5 +1,4 @@
 {
-  "✖️ Erro coluna 'Envio PDV' -> Filial: 1 | Nome: Amanda | 17/01/2026 18:19:28": "2026-01-17T21:39:52Z",
   "✖️ Erro coluna 'Envio PDV' -> Filial: 2 | Nome: Leonardo Rodrigues morais | 17/01/2026 20:14:27": "2026-01-17T23:18:43Z",
   "✖️ Erro coluna 'Envio PDV' -> Filial: 2 | Nome: Leonardo Rodrigues morais | 17/01/2026 20:24:22": "2026-01-17T23:40:51Z",
   "✖️ Erro coluna 'Envio PDV' -> Filial: 2 | Nome: Leonardo Rodrigues morais | 17/01/2026 20:26:49": "2026-01-17T23:40:52Z",
@@ -26,5 +25,9 @@
   "✖️ Erro coluna 'Envio PDV' -> Filial: 8 | Nome: xaryz τg 么 | 19/01/2026 16:22:05": "2026-01-19T19:23:07Z",
   "❗Pendência 'Enviar para PDV' -> Filial: 16 | Nome: Dionathan Cardoso Alves | 19/01/2026 17:29:00": "2026-01-19T20:46:15Z",
   "❗Pendência 'Enviar para PDV' -> Filial: 16 | Nome: Dionathan Cardoso Alves | 19/01/2026 17:30:16": "2026-01-19T20:46:16Z",
-  "❗Pendência 'Enviar para PDV' -> Filial: 16 | Nome: Dionathan Cardoso Alves | 19/01/2026 17:35:21": "2026-01-19T20:46:17Z"
+  "❗Pendência 'Enviar para PDV' -> Filial: 16 | Nome: Dionathan Cardoso Alves | 19/01/2026 17:35:21": "2026-01-19T20:46:17Z",
+  "❗Pendência 'Enviar para PDV' -> Filial: 16 | Nome: Sandra Garcia | 19/01/2026 17:46:14": "2026-01-19T21:42:59Z",
+  "✖️ Erro coluna 'Envio PDV' -> Filial: 7 | Nome: PAMELA MICAELA DA SILVA DOS SANTOS | 19/01/2026 18:10:01": "2026-01-19T21:42:59Z",
+  "❗Pendência 'Enviar para PDV' -> Filial: 7 | Nome: PAMELA MICAELA DA SILVA DOS SANTOS | 19/01/2026 18:10:01": "2026-01-19T21:43:00Z",
+  "✖️ Erro coluna 'Envio PDV' -> Filial: 16 | Nome: Chaiane Ferrari | 19/01/2026 18:13:36": "2026-01-19T21:43:00Z"
 }

@@ -1,6 +1,4 @@
 {
-  "✖️ Erro coluna 'Envio PDV' -> Filial: 13 | Nome: Tais Andrade | 29/03/2026 19:30:04": "2026-03-29T22:30:08Z",
-  "❗Pendência 'Enviar para PDV' -> Filial: 13 | Nome: Tais Andrade | 29/03/2026 19:30:04": "2026-03-29T22:30:09Z",
   "❗Pendência 'Enviar para PDV' -> Filial: 13 | Nome: Angelica Guedes | 30/03/2026 11:04:11": "2026-03-30T14:49:19Z",
   "❗Pendência 'Enviar para PDV' -> Filial: 6 | Nome: Adriana Rosch | 30/03/2026 17:55:30": "2026-03-30T21:41:30Z",
   "✖️ Erro coluna 'Envio PDV' -> Filial: 2 | Nome: Dayna Laureano | 30/03/2026 20:19:13": "2026-03-30T23:34:34Z",
@@ -8,5 +6,7 @@
   "✖️ Erro coluna 'Envio PDV' -> Filial: 7 | Nome: maria tramasol | 31/03/2026 09:45:37": "2026-03-31T14:08:40Z",
   "✖️ Erro coluna 'Envio PDV' -> Filial: 3 | Nome: Kelvin Cesar | 31/03/2026 16:01:03": "2026-03-31T19:01:23Z",
   "✖️ Erro coluna 'Envio PDV' -> Filial: 16 | Nome: Karine brum | 31/03/2026 16:58:21": "2026-03-31T19:58:58Z",
-  "✖️ Erro coluna 'Envio PDV' -> Filial: 2 | Nome: Lisiane Coelho | 31/03/2026 18:38:30": "2026-03-31T21:38:51Z"
+  "✖️ Erro coluna 'Envio PDV' -> Filial: 2 | Nome: Lisiane Coelho | 31/03/2026 18:38:30": "2026-03-31T21:38:51Z",
+  "✖️ Erro coluna 'Envio PDV' -> Filial: 6 | Nome: José Igor | 31/03/2026 19:19:09": "2026-03-31T22:34:39Z",
+  "❗Pendência 'Enviar para PDV' -> Filial: 6 | Nome: José Igor | 31/03/2026 19:19:09": "2026-03-31T22:34:39Z"
 }
